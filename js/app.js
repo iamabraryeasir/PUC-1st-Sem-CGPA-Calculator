@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const resultCard = cgpaDisplayTemplate.content.cloneNode(true);
 
-        const img = cgpa <= 1.5 ? "sad.png" : "happy.png";
+        const img = cgpa < 2.0 ? "sad.png" : "happy.png";
 
         resultCard.querySelector("img").setAttribute("src", `./images/${img}`);
         resultCard.querySelector("#cgpa-num").innerHTML = `${cgpa}/4.00`;
@@ -139,15 +139,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function cgpaToGrade(cgpa) {
-        if (cgpa >= 3.7 && cgpa <= 4.0) return "A+";
-        else if (cgpa >= 3.3 && cgpa < 3.7) return "A";
-        else if (cgpa >= 3.0 && cgpa < 3.3) return "A-";
-        else if (cgpa >= 2.7 && cgpa < 3.0) return "B+";
-        else if (cgpa >= 2.3 && cgpa < 2.7) return "B";
-        else if (cgpa >= 2.0 && cgpa < 2.3) return "B-";
-        else if (cgpa >= 1.7 && cgpa < 2.0) return "C+";
-        else if (cgpa >= 1.3 && cgpa < 1.7) return "C";
-        else if (cgpa >= 1.0 && cgpa < 1.3) return "C-";
+        if (cgpa === 4.0) return "A+";
+        else if (cgpa >= 3.75) return "A";
+        else if (cgpa >= 3.5) return "A-";
+        else if (cgpa >= 3.25) return "B+";
+        else if (cgpa >= 3.0) return "B";
+        else if (cgpa >= 2.75) return "B-";
+        else if (cgpa >= 2.5) return "C+";
+        else if (cgpa >= 2.0) return "C";
         else return "F";
     }
 
